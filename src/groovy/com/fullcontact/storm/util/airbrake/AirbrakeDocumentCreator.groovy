@@ -27,9 +27,9 @@ class AirbrakeDocumentCreator {
         xml.notice(version:"2.0") {
             'api-key'(apiKey)
             notifier {
-                name("Airbrake for Storm")
+                name("Airbrake Notifier for Storm")
                 version("1.0.0-SNAPSHOT")
-                url("https://github.com/Xorlev/storm-airbrake-notifier")
+                url("https://github.com/Xorlev/storm-airbrake")
             }
             error {
                 'class'(ex.getClass().canonicalName)
