@@ -34,7 +34,7 @@ class AsyncAirbrakeNotifier implements Runnable {
     }
 
     void submitToAirbrake(String xmlDocument) {
-        StringEntity stringEntity = new StringEntity(xmlDocument, ContentType.APPLICATION_XML)
+        StringEntity stringEntity = new StringEntity(xmlDocument)
 
         HttpClient httpClient = new DefaultHttpClient()
         HttpPost post = new HttpPost("http://airbrake.io/notifier_api/v2/notices")
