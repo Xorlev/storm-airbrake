@@ -17,7 +17,9 @@ class AirbrakeUtil {
     private static ExecutorService loggingPool = Executors.newFixedThreadPool(2)
 
     public static void logException(String apiKey, String environment, TopologyContext context, Exception ex) {
-        loggingPool.submit(new AsyncAirbrakeNotifier(apiKey, environment, context, ex))
+        if (!apiKey.isEmpty() && !environment?.isEmpty()) {
+            loggingPool.submit(new AsyncAirbrakeNotifier(apiKey, environment, context, ex))
+        }
     }
 
     public static IBasicBolt wrapBolt(BaseBasicBolt bolt) {

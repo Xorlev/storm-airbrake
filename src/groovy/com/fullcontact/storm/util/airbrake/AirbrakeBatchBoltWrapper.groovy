@@ -17,13 +17,12 @@ class AirbrakeBatchBoltWrapper extends BaseComponent implements IBatchBolt {
     Map _stormConf
     AirbrakeBatchBoltWrapper(IBatchBolt _bolt) {
         this._bolt = _bolt
-        this._stormConf = _stormConf
     }
 
     @Override
     void prepare(Map conf, TopologyContext context, BatchOutputCollector collector, Object id) {
+        _stormConf = conf
         _context = context
-
         _bolt.prepare(conf, context, collector, id)
     }
 

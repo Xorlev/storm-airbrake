@@ -13,14 +13,14 @@ class  AirbrakeRichBoltWrapper implements IRichBolt {
     TopologyContext _context
 
     AirbrakeRichBoltWrapper(IRichBolt bolt) {
-        _bolt = bolt
+        this._bolt = bolt
     }
 
     @Override
     void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
-        _stormConf = stormConf
-        _context = context
-        _bolt.prepare(stormConf, context, collector)
+        this._stormConf = stormConf
+        this._context = context
+        this._bolt.prepare(stormConf, context, collector)
     }
 
     @Override
