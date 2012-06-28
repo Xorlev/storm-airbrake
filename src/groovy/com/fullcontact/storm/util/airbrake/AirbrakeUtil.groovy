@@ -7,6 +7,7 @@ import backtype.storm.topology.base.BaseBatchBolt
 import backtype.storm.topology.base.BaseBasicBolt
 import backtype.storm.coordination.IBatchBolt
 import backtype.storm.topology.IBasicBolt
+import backtype.storm.topology.IRichBolt
 
 /**
  * 2012-06-14
@@ -26,4 +27,9 @@ class AirbrakeUtil {
     public static IBatchBolt wrapBolt(BaseBatchBolt bolt) {
         new AirbrakeBatchBoltWrapper(bolt)
     }
+
+    public static IRichBolt wrapBolt(IRichBolt bolt) {
+        new AirbrakeRichBoltWrapper(bolt)
+    }
+
 }
