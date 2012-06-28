@@ -1,4 +1,4 @@
-(defproject com.fullcontact/storm-airbrake "0.1.1"
+(defproject com.fullcontact/storm-airbrake "0.1.2"
   :description "Bolt wrapper to report exceptions to airbreak"
   :license {:name "The Apache Software License, Version 2.0"
             :url "http://www.eclipse.org/legal/epl-v10.htm"}
