@@ -19,6 +19,8 @@ class AirbrakeUtil {
     public static void logException(String apiKey, String environment, TopologyContext context, Exception ex) {
         if (!apiKey.isEmpty() && !environment?.isEmpty()) {
             loggingPool.submit(new AsyncAirbrakeNotifier(apiKey, environment, context, ex))
+        } else {
+            println "---- airbrake not configured, ${ex}"
         }
     }
 
@@ -33,5 +35,4 @@ class AirbrakeUtil {
     public static IRichBolt wrapBolt(IRichBolt bolt) {
         new AirbrakeRichBoltWrapper(bolt)
     }
-
 }
